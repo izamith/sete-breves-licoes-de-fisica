@@ -43,6 +43,11 @@ nav a {
     flex-wrap: wrap;
     align-items: flex-end;
 }
+
+.photos img, .list img {
+    filter: invert(1);
+}
+
 .photo {
    /* display: inline-block; */
     width:  220px;
@@ -58,10 +63,20 @@ nav a {
     height: 100%;
     background-color: black;
     opacity: 0;
+    transition: all .2s;
+    z-index: 100;
 }
 
 .photo:hover .overlay {
    opacity: .8;
+}
+
+.photo h2 {
+    position: absolute;
+    left: -20px;
+    top: -20px;
+    font-size: 32px;
+    text-align: left;   
 }
 
 .large {
@@ -83,3 +98,41 @@ footer {
     text-align: center;
     color: gray;
 }
+ 
+.list {
+    max-width: 640px;
+    margin: 0 auto ;
+    margin-top: 120px;
+}
+
+.list a img {
+    opacity: 0;
+    position: fixed;
+    max-width: 500px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    pointer-events: none;
+    transition: opacity .2s;
+}
+
+.list a {
+    font-size: 32px;
+    color: whitesmoke;
+    font-weight: 400;
+  
+}
+
+.list a:after {
+    content: ' /';
+}
+
+.list a:last-child::after {
+    content: '';
+}
+
+.list a:hover img {
+    opacity: 1;
+}
+
+
